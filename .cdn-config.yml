@@ -1,0 +1,12 @@
+---
+name: byu-hero-banner
+description: byu-hero-banner
+resources:
+  - src: dist/**
+    dest: ./
+entrypoints:
+  "byu-hero-banner.js": 'Examines browser support and downloads the appropriate component bundle'
+  "byu-hero-banner.min.js": 'Minified - Examines browser support and downloads the appropriate component bundle'
+  "byu-hero-banner.css": 'Main CSS file'
+  "byu-hero-banner.min.css": 'Main CSS file'
+docs: https://github.com/byuweb/byu-hero-banner
