@@ -1,30 +1,10 @@
 # byu-hero-banner
 
-This is a simple Web Component using the BYU Web Community web component
+This is a simple Hero Image Banner Component using the BYU Web Community web component
 tools.
 
 # Getting Started
 
-```
-npm install
-```
-
-To run a local development server with a file watch, run
-
-```
-npm start
-```
-
-To assemble the final distribution bundle, run
-
-```
-npm run build
-```
-
-To run automatic unit tests, run
-
-```
-npm test
-```
+The hero component has three slots and an image-source attribute. We could have used a slot for the image, but using an image-source attribute allows us to set the image as a CSS background image, which is more flexible than an img tag due to IE and Edge not supporting the "object-fit" property, among other things.
 
 

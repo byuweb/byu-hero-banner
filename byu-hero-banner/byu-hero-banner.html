@@ -16,21 +16,21 @@
   -->
 
 <style>
-    ${require('./byu-hero-banner.scss')}
+  ${
+    require('./byu-hero-banner.scss')
+  }
 </style>
 
-<div class="root">
-  <div class="output"></div>
-  <div class="button-wrapper">
-    <button class="fancy-button">Make It Fancy!</button>
+<div class="image-wrapper">
+</div>
+<div class="text-wrapper">
+  <div class="headline slot-wrapper">
+    <slot id="headline" name="headline"></slot>
   </div>
-  <div class="fancy-template-wrapper slot-container">
-    <!-- This is our default fancy template. If the consumer doesn't specify anything, we'll use this -->
-    <slot id="fancy-template">
-      <template>
-        <span>🎩</span>
-      </template>
-    </slot>
+  <div class="intro-text slot-wrapper">
+    <slot id="intro-text" name="intro-text"></slot>
+  </div>
+  <div class="read-more-link slot-wrapper">
+    <slot id="read-more" name="read-more"></slot>
   </div>
 </div>
-

@@ -17,76 +17,90 @@
   -->
 
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>byu-hero-banner Demo</title>
+
+  <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
+  <link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/latest/byu-theme-components.min.css" />
+  <script async src="https://cdn.byu.edu/byu-theme-components/latest/byu-theme-components.min.js"></script>
+
 
   <link rel="stylesheet" href="dist/byu-hero-banner.min.css">
   <script defer src="dist/byu-hero-banner.min.js"></script>
 
+  <title>byu-hero-banner Demo</title>
+
   <style>
-    #fancy-selector {
-      font-size: 2em;
+    html {
+      height: 100%;
     }
 
-    #basic-fancy {
-      font-size: 3em;
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
     }
 
-    #fancy-range {
-      width: 400px;
+    .page-content {
+      flex: 1;
+      margin: 0 auto;
+      max-width: 1200px;
+      width: 100%;
+      padding: 16px;
+      box-sizing: border-box;
     }
   </style>
+
 </head>
+
 <body>
 
-<h1>Default Fanciness</h1>
-<byu-hero-banner id="basic-fancy"></byu-hero-banner>
 
-<h2>How Fancy?</h2>
-<input type="range" min="0" max="20" value="1" id="fancy-range" list="fancyscale"/>
+  <byu-header>
+    <h1 slot="site-title">Hero Component Demo</h1>
+  </byu-header>
 
-<datalist id="fancyscale">
-  <option value="0" label="Boring"></option>
-  <option value="5" label="Still Boring"></option>
-  <option value="10" label="Less Boring"></option>
-  <option value="15" label="Getting Better"></option>
-  <option value="20" label="Super Fancy!"></option>
-</datalist>
+  <h1>Full Screen</h1>
 
-<h2>Customize your fanciness</h2>
+  <byu-hero-banner id="hero" image-source="light-image.jpg" class="full-screen light-image">
+    <span slot="headline">This is the Headline</span>
+    <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro text.</span>
+    <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
+  </byu-hero-banner>
 
-<select id="fancy-selector">
-  <option selected>🎩</option>
-  <option>👑</option>
-  <option>👸</option>
-  <option>🤴</option>
-  <option>👗</option>
-  <option>🤵</option>
-  <option>👰</option>
-  <option>🏆</option>
-  <option>🐩</option>
-  <option>🖋️</option>
-</select>
+  <h1>Full Screen Dark Image</h1>
 
-<script>
-  (function () {
-    let range = document.getElementById('fancy-range');
-    let fancy = document.getElementById('basic-fancy');
+  <byu-hero-banner id="hero" image-source="dark-image.jpg" class="full-screen dark-image">
+    <span slot="headline">This is the Headline</span>
+    <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro text.</span>
+    <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
+  </byu-hero-banner>
 
-    range.addEventListener('input', e => {
-      fancy.fancy = range.value;
-    }, false);
+  <h1>Side Image</h1>
 
-    let selector = document.getElementById('fancy-selector');
+  <byu-hero-banner id="hero" image-source="dark-image.jpg" class="side-image">
+    <span slot="headline">This is the Headline</span>
+    <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro text.</span>
+    <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
+  </byu-hero-banner>
 
-    selector.addEventListener('change', evt => {
-      fancy.innerHTML = `<template><span>${selector.value}</span></template>`;
-    });
-  })();
-</script>
+  <h1>Transparent Overlay</h1>
+
+  <byu-hero-banner id="hero" image-source="dark-image.jpg" class="transparent-overlay">
+    <span slot="headline">This is the Headline</span>
+    <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro text.</span>
+    <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
+  </byu-hero-banner>
+
+
+
+  <div class="page-content">
+    You'll need to put your hero banner outside the page-content div if you want it to go to the edge of the page.
+  </div>
+  <byu-footer></byu-footer>
 
 </body>
-</html>
 
+</html>
