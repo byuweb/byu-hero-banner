@@ -73,15 +73,15 @@
         .read-more-link {
             margin: 0 auto;
             margin-top: 50px;
-            background-color: $navy;
-
-            &:hover {
-                background-color: #00152a;
-                border-color: #000306;
-            }
 
             ::slotted(a), ::slotted(.btn) {
+                background-color: $navy;
                 color: #fff;
+            }
+
+            ::slotted(a:hover), ::slotted(.btn:hover) {
+                background-color: #00152a;
+                border-color: #000306;
             }
         }
     }
@@ -114,10 +114,10 @@
         }
 
         .read-more-link {
-            background-color: #fff;
-            color: $navy;
-
+            
             ::slotted(a), ::slotted(.btn) {
+                background-color: #fff;
+                color: $navy;
                 color: $navy;
                 font-weight: bold;
                 border-color: $mediumGray;
@@ -130,7 +130,9 @@
 
     background-color: initial;
     display: flex;
-    padding: 0 100px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 16px;
     box-sizing: border-box;
 
     .image-wrapper {
@@ -177,5 +179,56 @@
 }
 
 :host(.transparent-overlay) {
+   
+    .image-wrapper {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+    }
 
+    .text-wrapper {
+
+        height: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-top: -500px;
+        padding: 0 16px;
+        box-sizing: border-box;
+
+        .text-inner-wrapper {
+            width: 300px;
+            height: 400px;
+            background-color: rgba(255,255,255,0.8);
+            
+            padding: 0 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        
+        .headline {
+            color: $navy;
+        }
+
+        .intro-text {
+            margin-top: 15px;
+        }
+
+        .read-more-link {
+            margin-top: 50px;
+
+            ::slotted(a), ::slotted(.btn) {
+                background-color: $navy;
+                color: #fff;
+            }
+
+            ::slotted(a:hover), ::slotted(.btn:hover) {
+                background-color: #00152a;
+                border-color: #000306;
+            }
+        }
+    }
 }
