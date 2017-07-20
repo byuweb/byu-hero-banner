@@ -17,7 +17,7 @@
 
 @import 'byu-hero-banner-common';
 
-:host(*) {
+:host(byu-hero-banner) {
     width: 100%;
     max-height: $desktopHeight;
     height: $desktopHeight;
