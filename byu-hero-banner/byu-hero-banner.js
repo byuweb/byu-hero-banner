@@ -69,6 +69,11 @@ window.ByuHeroBanner = ByuHeroBanner;
 function applyImageSource(component) {
    let imageBox = component.shadowRoot.querySelector('div.image-wrapper');
    imageBox.style.backgroundImage = "url('" + component.imageSource + "')";
+
+   // this image is kind of a hack to allow us to use either a css background image
+   // or an HTML image for different scenarios, depending on which one works best.
+   let hiddenImage = component.shadowRoot.querySelector('#hidden-image');
+   hiddenImage.src = component.imageSource;
 }
 
 function setupSlotListeners(component) {

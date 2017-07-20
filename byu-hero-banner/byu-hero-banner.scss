@@ -19,8 +19,8 @@
 
 :host(*) {
     width: 100%;
-    max-height: 500px;
-    height: 500px;
+    max-height: $desktopHeight;
+    height: $desktopHeight;
     overflow: hidden;
     background-color: #000;
     position: relative;
@@ -31,14 +31,43 @@
     width: 100%;
 }
 
+#hidden-image {
+    display: none;
+}
+
 .text-wrapper {
     ::slotted(*) {
-        font-family: $bodyText;
+        font-family: $bodyFont;
     }
 
     .headline ::slotted(*) {
-        font-size: $headlineSize;
-        font-family: $headerText !important;
+        font-family: $headlineFont !important;
+    }
+}
+
+.read-more-link  {
+
+    display: inline-block;
+
+    ::slotted(a), ::slotted(.btn) {
+        margin-bottom: 0;
+        font-weight: bold;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        border-radius: 1px;
+        user-select: none;
+        text-decoration: none;
+        min-width: 200px;
+        min-height: 40px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
     }
 }
 
@@ -46,6 +75,7 @@
 
     .image-wrapper {
         background-size: cover;
+        background-position: center;
     }
 
     .text-wrapper {
@@ -60,14 +90,22 @@
         justify-content: center;
         text-align: center;
         box-sizing: border-box;
-        padding: 0 75px;
+        padding: 0 20px;
+
+        .text-inner-wrapper {
+            background-color: rgba(255,255,255,0.8);
+            padding: 20px;
+        }
 
         .headline {
             color: $navy;
+            font-size: $headlineSizeFullScreen;
+            line-height: $headlineLineHeightFullScreen;
         }
 
         .intro-text {
             margin-top: 15px;
+            font-size: $introTextFontSizeFullScreen;
         }
 
         .read-more-link {
@@ -87,28 +125,15 @@
     }
 }
 
-.read-more-link  {
-    ::slotted(a), ::slotted(.btn) {
-        display: inline-block;
-        margin-bottom: 0;
-        font-weight: 400;
-        vertical-align: middle;
-        touch-action: manipulation;
-        cursor: pointer;
-        border: 1px solid transparent;
-        white-space: nowrap;
-        padding: 6px 12px;
-        font-size: 14px;
-        line-height: 1.42857143;
-        border-radius: 1px;
-        user-select: none;
-        text-decoration: none;
-    }
-}
 
 :host(.full-screen.dark-image) {
 
     .text-wrapper {
+        
+        .text-inner-wrapper {
+            background: inherit;
+        }
+
         .headline, .intro-text, .read-more-link {
             color: #fff;
         }
@@ -119,7 +144,6 @@
                 background-color: #fff;
                 color: $navy;
                 color: $navy;
-                font-weight: bold;
                 border-color: $mediumGray;
             }
         }
@@ -134,10 +158,14 @@
     max-width: 1200px;
     padding: 0 16px;
     box-sizing: border-box;
+    height: initial;
+    align-items: center;
+    justify-content: center;
 
     .image-wrapper {
-        height: 100%;
-        max-width: 600px;
+        height: 414px;
+        width: 100%;
+        
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -156,14 +184,18 @@
 
         .headline {
             color: $navy;
+            font-size: $headlineSizeSideImage;
+            line-height: $headlineLineHeightSideImage;
         }
 
         .intro-text {
             margin-top: 15px;
+            font-size: $introTextFontSizeSideImage;
+            line-height: $introTextLineHeightSideImage;
         }
 
         .read-more-link {
-            margin-top: 50px;
+            margin-top: 20px;
 
             ::slotted(a), ::slotted(.btn) {
                 background-color: $navy;
@@ -184,6 +216,7 @@
         width: 100%;
         height: 100%;
         background-size: cover;
+        background-position: center;
     }
 
     .text-wrapper {
@@ -191,13 +224,14 @@
         height: 100%;
         max-width: 1200px;
         margin: 0 auto;
-        margin-top: -500px;
+        margin-top: -$desktopHeight;
         padding: 0 16px;
         box-sizing: border-box;
 
         .text-inner-wrapper {
-            width: 300px;
-            height: 400px;
+            width: 400px;
+            height: 80%;
+            margin-top: $desktopHeight/10;
             background-color: rgba(255,255,255,0.8);
             
             padding: 0 30px;
@@ -211,14 +245,18 @@
         
         .headline {
             color: $navy;
+            font-size: $headlineSizeOverlay;
+            line-height: $headlineLineHeightOverlay;
         }
 
         .intro-text {
             margin-top: 15px;
+            font-size: $introTextFontSizeOverlay;
+            line-height: $introTextLineHeightOverlay;
         }
 
         .read-more-link {
-            margin-top: 50px;
+            margin-top: 20px;
             align-self: center;
 
             ::slotted(a), ::slotted(.btn) {
@@ -238,13 +276,52 @@
 @media (max-width: 1024px) {
 
     :host(.full-screen) {
-        height: 100vh;
+        height: $mobileHeight;
         max-height: 100vh;
+
+        .text-wrapper {
+            
+            .text-inner-wrapper {
+
+                .headline {
+                    font-size: $headlineSizeFullScreenMobile;
+                    line-height: $headlineLineHeightFullScreenMobile;
+                }
+
+                .intro-text {
+                    font-size: $introTextFontSizeFullScreenMobile;
+                }
+
+            }
+        }
+    }
+
+    :host(.side-image) {
+
+        .image-wrapper {
+            height: 216px;
+        }
+
+        .text-wrapper {
+
+            .text-inner-wrapper {
+
+                .headline {
+                    font-size: $headlineSizeSideImageMobile;
+                    line-height: $headlineLineHeightSideImageMobile;
+                }
+
+                .intro-text {
+                    font-size: $introTextFontSizeSideImageMobile;
+                    line-height: $introTextLineHeightSideImageMobile;
+                }
+            }
+        }
     }
 
     :host(.transparent-overlay) {
 
-        height: 100vh;
+        height: $mobileHeight;
         max-height: 100vh;
 
         .text-wrapper {
@@ -252,9 +329,7 @@
             height: auto;
             max-width: 100%;
             width: 100%;
-            margin: 0 auto;
             padding: 0;
-            box-sizing: border-box;
             position: absolute;
             bottom: 0;
             left: 0;
@@ -262,38 +337,52 @@
             .text-inner-wrapper {
                 width: 100%;
                 height: 100%;
-                background-color: rgba(255,255,255,0.8);
                 
                 padding: 30px 30px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                text-align: left;
-                box-sizing: border-box;
-            }
 
-            
-            .headline {
-                color: $navy;
-            }
-
-            .intro-text {
-                margin-top: 15px;
-            }
-
-            .read-more-link {
-                margin-top: 50px;
-
-                ::slotted(a), ::slotted(.btn) {
-                    background-color: $navy;
-                    color: #fff;
+                .headline {
+                    font-size: $headlineSizeOverlayMobile;
+                    line-height: $headlineLineHeightOverlayMobile;
                 }
 
-                ::slotted(a:hover), ::slotted(.btn:hover) {
-                    background-color: #00152a;
-                    border-color: #000306;
+                 .intro-text {
+                    font-size: $introTextFontSizeOverlayMobile;
+                    line-height: $introTextLineHeightOverlayMobile;
                 }
             }
         }
+    }
+}
+
+/* Phone Width */
+@media (max-width: 616px) {
+
+    :host(.side-image) {
+
+        height: auto;
+        max-height: initial;
+        padding: 0;
+        display: block;
+
+        .image-wrapper {
+            background: none !important;
+            height: auto;
+
+            #hidden-image {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .text-wrapper {
+            margin-top: 20px;
+            margin-left: 0px;
+            height: auto;
+            padding: 0 20px;
+            
+            .read-more-link {
+                margin-top: 20px;
+            }
+        }        
     }
 }
