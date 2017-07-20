@@ -33,7 +33,9 @@ This layout is applied by adding the transparent-overlay css class to the compon
 
 The full screen layout has two options, depending on whether your image is mostly dark or mostly light. The text is centered on the image in all screen sizes.
 
-This layout is applied by adding the "full-screen dark-image" or "full-screen light-image" css class to the component.
+This layout is applied by adding the "full-screen dark-image" or "full-screen light-image" css class to the component. 
+
+Note that the dark-image option uses white text and does not have an overlay, so in order to make your banner readable and accessible you'll need to make sure the background image is dark enough to provide sufficient contrast with the text.
 
 # Release Roadmap
 
