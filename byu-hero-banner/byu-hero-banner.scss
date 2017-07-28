@@ -17,12 +17,13 @@
 
 @import 'byu-hero-banner-common';
 
-:host(byu-hero-banner) {
+:host {
     width: 100%;
     max-height: $desktopHeight;
     height: $desktopHeight;
     overflow: hidden;
     position: relative;
+    display: block;
 }
 
 .image-wrapper {
