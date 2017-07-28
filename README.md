@@ -9,6 +9,8 @@ The hero component has three slots and an image-source attribute. We could have 
 
 To use the component on your site, use the following markup:
 
+    <link href="https://cdn.byu.edu/byu-hero-banner/latest/byu-hero-banner.min.css" rel="stylesheet" />
+    <script async src="https://cdn.byu.edu/byu-hero-banner/latest/byu-hero-banner.min.js"></script>
     <byu-hero-banner id="hero" image-source="dark-image.jpg" class="side-image">
         <span slot="headline">This is the Headline</span>
         <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro text.</span>
