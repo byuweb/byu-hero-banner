@@ -51,7 +51,7 @@
 
     ::slotted(a), ::slotted(.btn) {
         margin-bottom: 0;
-        font-weight: bold;
+        font-weight: bold !important;
         vertical-align: middle;
         touch-action: manipulation;
         cursor: pointer;
@@ -62,12 +62,13 @@
         line-height: 1.42857143;
         border-radius: 1px;
         user-select: none;
-        text-decoration: none;
+        text-decoration: none !important;
         min-width: 200px;
         min-height: 40px;
         box-sizing: border-box;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 }
 
@@ -113,13 +114,13 @@
             margin-top: 50px;
 
             ::slotted(a), ::slotted(.btn) {
-                background-color: $navy;
-                color: #fff;
+                background-color: $navy !important;
+                color: #fff !important;
             }
 
             ::slotted(a:hover), ::slotted(.btn:hover) {
-                background-color: #00152a;
-                border-color: #000306;
+                background-color: #00152a !important;
+                border-color: #000306 !important;
             }
         }
     }
@@ -141,10 +142,9 @@
         .read-more-link {
             
             ::slotted(a), ::slotted(.btn) {
-                background-color: #fff;
-                color: $navy;
-                color: $navy;
-                border-color: $mediumGray;
+                background-color: #fff !important;
+                color: $navy !important;
+                border-color: $mediumGray !important;
             }
         }
     }
@@ -198,13 +198,13 @@
             margin-top: 20px;
 
             ::slotted(a), ::slotted(.btn) {
-                background-color: $navy;
-                color: #fff;
+                background-color: $navy !important;
+                color: #fff !important;
             }
 
             ::slotted(a:hover), ::slotted(.btn:hover) {
-                background-color: #00152a;
-                border-color: #000306;
+                background-color: #00152a !important;
+                border-color: #000306 !important;
             }
         }
     }
@@ -260,13 +260,13 @@
             align-self: center;
 
             ::slotted(a), ::slotted(.btn) {
-                background-color: $navy;
-                color: #fff;
+                background-color: $navy !important;
+                color: #fff !important;
             }
 
             ::slotted(a:hover), ::slotted(.btn:hover) {
-                background-color: #00152a;
-                border-color: #000306;
+                background-color: #00152a !important;
+                border-color: #000306 !important;
             }
         }
     }
