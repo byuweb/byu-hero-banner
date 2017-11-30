@@ -227,6 +227,8 @@
         margin-top: -$desktopHeight;
         padding: 0 16px;
         box-sizing: border-box;
+        display: flex;
+        justify-content: flex-start;
 
         .text-inner-wrapper {
             width: 400px;
@@ -271,6 +273,13 @@
         }
     }
 }
+
+/* Allow Right Aligning the transparent overlay */
+:host(.transparent-overlay.right) {
+    .text-wrapper {
+        justify-content: flex-end;
+    }
+}    
 
 /* Tablet Width */
 @media (max-width: 1024px) {
