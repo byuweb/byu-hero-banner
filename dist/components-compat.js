@@ -275,15 +275,25 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }
       };
 
+      // function vidRescale() {
+      //   let w = window.innerWidth, h = window.innerHeight;
+      //   //console.log(w);
+      //   if (w/h > 16/9) {
+      //     player.setSize(w, w/(16/9));
+      //   } else {
+      //     player.setSize(h*(16/9), h);
+      //   }
+      // }
+
       var vidRescale = function vidRescale() {
-        var w = window.innerWidth,
-            h = window.innerHeight;
-        //console.log(w);
+        var w = window.innerWidth + 300;
+        var h = window.innerHeight + 300;
         if (w / h > 16 / 9) {
-          player.setSize(w, w / (16 / 9));
+          player.setSize(w, w / 16 * 9);
         } else {
-          player.setSize(h * (16 / 9), h);
+          player.setSize(h / 9 * 16, h);
         }
+        iframe.style.left = (window.innerWidth - iframe.offsetWidth) / 2 + 'px';
       };
 
       var videoBox = component.shadowRoot.querySelector('#player');

@@ -284,14 +284,25 @@ function applyVideoID(component) {
     // window.addEventListener('load', vidRescale);
     window.addEventListener('resize', vidRescale);
 
+    // function vidRescale() {
+    //   let w = window.innerWidth, h = window.innerHeight;
+    //   //console.log(w);
+    //   if (w/h > 16/9) {
+    //     player.setSize(w, w/(16/9));
+    //   } else {
+    //     player.setSize(h*(16/9), h);
+    //   }
+    // }
+
     function vidRescale() {
-      let w = window.innerWidth, h = window.innerHeight;
-      //console.log(w);
-      if (w/h > 16/9) {
-        player.setSize(w, w/(16/9));
+      var w = window.innerWidth + 300;
+      var h = window.innerHeight + 300;
+      if (w / h > 16 / 9) {
+        player.setSize(w, w / 16 * 9);
       } else {
-        player.setSize(h*(16/9), h);
+        player.setSize(h / 9 * 16, h);
       }
+      iframe.style.left = (window.innerWidth - iframe.offsetWidth) / 2 + 'px';
     }
   }
 }
