@@ -72,6 +72,71 @@
     }
 }
 
+:host(.youtube-hero) {
+
+    .image-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 200;
+    }
+
+    // Show the image initially
+    #hidden-image {
+        display: inline;
+        position: absolute;
+        z-index: 250;
+    }
+    // For fading out the image after youtube video starts playing
+    .hidden {
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+    }
+
+    .tv {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background-color: #000;
+
+        width: 100%;
+        height: 100%;
+
+        overflow: hidden;
+
+        .overlay {
+            position: absolute;
+            z-index: 400;
+            width: 100%;
+            height: 100%;
+            background-image: url('~/byu-hero-banner/dark.png');
+            background-repeat: repeat;
+            background-size: auto;
+        }
+    
+        .screen {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            /* this always centers the video */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 150;
+
+            margin: auto;
+
+            opacity: 1;
+            transition: opacity .5s;
+
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
+}
+
 :host(.full-screen) {
 
     .image-wrapper {
@@ -91,15 +156,17 @@
         justify-content: center;
         text-align: center;
         box-sizing: border-box;
-        padding: 0 20px;
-
+        // padding: 0 20px;
+        z-index: 300;
+        
         .text-inner-wrapper {
-            background-color: rgba(255,255,255,0.8);
+            // background-color: rgba(255,255,255,0.8);
             padding: 20px;
+            color: $white;
         }
 
         .headline {
-            color: $navy;
+            //color: $navy;
             font-size: $headlineSizeFullScreen;
             line-height: $headlineLineHeightFullScreen;
         }
@@ -125,7 +192,6 @@
         }
     }
 }
-
 
 :host(.full-screen.dark-image) {
 
@@ -229,7 +295,6 @@
         box-sizing: border-box;
         display: flex;
         justify-content: flex-start;
-
         .text-inner-wrapper {
             width: 400px;
             height: 80%;
@@ -280,14 +345,12 @@
         justify-content: flex-end;
     }
 }    
-
 /* Tablet Width */
 @media (max-width: 1024px) {
 
     :host(.full-screen) {
         height: $mobileHeight;
-        max-height: 100vh;
-
+        
         .text-wrapper {
             
             .text-inner-wrapper {
@@ -331,8 +394,7 @@
     :host(.transparent-overlay) {
 
         height: $mobileHeight;
-        max-height: 100vh;
-
+        
         .text-wrapper {
 
             height: auto;
