@@ -350,8 +350,7 @@
 
     :host(.full-screen) {
         height: $mobileHeight;
-        //max-height: 100vh;
-
+        
         .text-wrapper {
             
             .text-inner-wrapper {
@@ -395,8 +394,7 @@
     :host(.transparent-overlay) {
 
         height: $mobileHeight;
-        //max-height: 100vh;
-
+        
         .text-wrapper {
 
             height: auto;
