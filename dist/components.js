@@ -281,18 +281,7 @@ function applyVideoID(component) {
     iframe.style.display = 'inline';
     iframe.style.marginLeft = 0;
     
-    // window.addEventListener('load', vidRescale);
     window.addEventListener('resize', vidRescale);
-
-    // function vidRescale() {
-    //   let w = window.innerWidth, h = window.innerHeight;
-    //   //console.log(w);
-    //   if (w/h > 16/9) {
-    //     player.setSize(w, w/(16/9));
-    //   } else {
-    //     player.setSize(h*(16/9), h);
-    //   }
-    // }
 
     function vidRescale() {
       var w = window.innerWidth + 300;
@@ -307,31 +296,9 @@ function applyVideoID(component) {
   }
 }
 
-// function vidRescale(){
-//   let w = window.innerWidth + 200, h = window.innerHeight + 200;
-//   let els = document.querySelectorAll(".tv, .screen");
-//   if (w/h > 16/9){
-//     tv.setSize(w, w/16*9);
-//     for (let i = 0; i < els.length; i++) {
-//       els[i].style.left = '0px';
-//     }
-//     //$('.tv .screen').css({'left': '0px'});
-//   } else {
-//     tv.setSize(h/9*16, h);
-//     $('.tv .screen').css({'left': -($('.tv .screen').outerWidth()-w)/2});
-//   }
-// }
-
-// $(window).on('load resize', function(){
-//   vidRescale();
-// });
 
 function setupSlotListeners(component) {
-  // let slot = component.shadowRoot.querySelector('#fancy-template');
 
-  // //this will listen to changes to the contents of our <slot>, so we can take appropriate action
-  // slot.addEventListener('slotchange', () => {
-  // }, false);
 }
 
 
