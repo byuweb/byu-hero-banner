@@ -144,7 +144,10 @@
         background-size: cover;
         background-position: center;
     }
+}
 
+:host(.full-screen, .video-hero) {
+    
     .text-wrapper {
         position: absolute;
         top: 0px;
