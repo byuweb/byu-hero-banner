@@ -72,7 +72,7 @@
     }
 }
 
-:host(.youtube-hero) {
+:host(.video-hero) {
 
     .image-wrapper {
         position: absolute;
@@ -87,7 +87,7 @@
         position: absolute;
         z-index: 250;
     }
-    // For fading out the image after youtube video starts playing
+    // For fading out the image after video video starts playing
     .hidden {
         opacity: 0;
         transition: opacity 2s ease-in-out;
@@ -120,6 +120,7 @@
             top: 0;
             right: 0;
             bottom: 0;
+            // width: 100%;
             /* this always centers the video */
             left: 50%;
             transform: translateX(-50%);
@@ -143,7 +144,10 @@
         background-size: cover;
         background-position: center;
     }
+}
 
+:host(.full-screen, .video-hero) {
+    
     .text-wrapper {
         position: absolute;
         top: 0px;
