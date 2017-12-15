@@ -62,9 +62,35 @@
     <h1 slot="site-title">Hero Component Demo</h1>
   </byu-header>
 
-  <h1>Video</h1>
 
-  <byu-hero-banner id="hero" image-source="dark-image2.jpg" video-id="dxhETyPYy-o" class="youtube-hero full-screen">
+  <!-- VIMEO URLS -->
+  <!--https://vimeo.com/channels/staffpicks/245613786-->
+  <!--https://vimeo.com/70744531-->
+
+  <!-- YOUTUBE URLS -->
+  <!--https://www.youtube.com/watch?v=_qVt3smMSuc-->
+  <!--https://www.youtube.com/watch?v=dxhETyPYy-o-->
+
+  <!-- .MP4 URLS -->
+  <!--takeonme.mp4-->
+  <!--websitehero.mp4-->
+  <!-- <iframe id="vimeo" src="https://player.vimeo.com/video/84069253?api=1&player_id=vimeo&autoplay=1" frameBorder="0" style="height: 600px"></iframe> -->
+  <h1>Youtube Video</h1>
+  <byu-hero-banner id="hero" image-source="dark-image2.jpg" video-source="https://www.youtube.com/watch?v=dxhETyPYy-o" class="youtube-hero full-screen">
+    <span slot="headline">This is the Headline</span>
+    <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro text.</span>
+    <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
+  </byu-hero-banner>
+
+  <!-- <h1>Vimeo Video</h1>
+  <byu-hero-banner id="hero" image-source="dark-image2.jpg" video-source="https://player.vimeo.com/video/84069253" class="youtube-hero full-screen">
+    <span slot="headline">This is the Headline</span>
+    <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro text.</span>
+    <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
+  </byu-hero-banner> -->
+
+  <h1>MP4 Video</h1>
+  <byu-hero-banner id="hero" image-source="dark-image2.jpg" video-source="websitehero.mp4" class="youtube-hero full-screen">
     <span slot="headline">This is the Headline</span>
     <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro text.</span>
     <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
