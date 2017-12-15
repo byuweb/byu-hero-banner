@@ -158,7 +158,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
    **/
 
   var ATTR_IMG_SRC = 'image-source';
-  var ATTR_VIDEO_ID = 'video-id';
+  var ATTR_VIDEO_SRC = 'video-source';
 
   var ByuHeroBanner = function (_HTMLElement) {
     _inherits(ByuHeroBanner, _HTMLElement);
@@ -181,7 +181,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-hero-banner', __WEBPACK_IMPORTED_MODULE_0__byu_hero_banner_html___default.a, function () {
           setupSlotListeners(_this2);
           applyImageSource(_this2);
-          applyVideoID(_this2);
+          applyVideoSource(_this2);
         });
       }
     }, {
@@ -191,8 +191,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
           case ATTR_IMG_SRC:
             applyImageSource(this);
             break;
-          case ATTR_VIDEO_ID:
-            applyVideoID(this);
+          case ATTR_VIDEO_SRC:
+            applyVideoSource(this);
             break;
         }
       }
@@ -208,13 +208,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         return '';
       }
     }, {
-      key: 'videoID',
+      key: 'videoSource',
       set: function set(value) {
-        this.setAttribute(ATTR_VIDEO_ID, value);
+        this.setAttribute(ATTR_VIDEO_SRC, value);
       },
       get: function get() {
-        if (this.hasAttribute(ATTR_VIDEO_ID)) {
-          return this.getAttribute(ATTR_VIDEO_ID);
+        if (this.hasAttribute(ATTR_VIDEO_SRC)) {
+          return this.getAttribute(ATTR_VIDEO_SRC);
         }
         return '';
       }
@@ -236,98 +236,143 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
   function applyImageSource(component) {
     var imageBox = component.shadowRoot.querySelector('div.image-wrapper');
     imageBox.style.backgroundImage = "url('" + component.imageSource + "')";
-
     // this image is kind of a hack to allow us to use either a css background image
     // or an HTML image for different scenarios, depending on which one works best.
     var hiddenImage = component.shadowRoot.querySelector('#hidden-image');
     hiddenImage.src = component.imageSource;
   }
 
-  function applyVideoID(component) {
-
-    if (component.videoID && component.videoID != '') {
-      var onPlayerReady = function onPlayerReady(event) {
-        // Limits the amount of black screen before restarting the video
-        setInterval(function () {
-          var i = player.getCurrentTime() / player.getDuration() * 100;
-          // if the video is at least 99% complete, restart the video
-          if (i >= 99) {
-            player.seekTo(0);
-          }
-        }, 25);
-        player.mute();
-        vidRescale();
-        // This forces it to start playing on mobile devices
-        player.playVideo();
-      };
-
-      var onStateChange = function onStateChange(event) {
-        switch (event.data) {
-          case YT.PlayerState.PLAYING:
-            // Fade out the starting image
-            component.shadowRoot.querySelector('#hidden-image').classList.add('hidden');
-            break;
-          case YT.PlayerState.ENDED:
-            // Use this instead of a looped playlist to prevent loading the video again 
-            // causing a longer black screen in between
-            player.playVideo();
-            break;
-        }
-      };
-
-      var vidRescale = function vidRescale() {
-        var w = window.innerWidth + 300;
-        var h = window.innerHeight + 300;
-        if (w / h > 16 / 9) {
-          player.setSize(w, w / 16 * 9);
-        } else {
-          player.setSize(h / 9 * 16, h);
-        }
-        iframe.style.left = (window.innerWidth - iframe.offsetWidth) / 2 + 'px';
-      };
-
-      var videoBox = component.shadowRoot.querySelector('#player');
-      //videoBox.src = component.videoID;
-
-      // Load the YouTube API asynchronously
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      // Create the player object when API is ready
-      var player;
-      window.onYouTubeIframeAPIReady = function () {
-        player = new YT.Player(videoBox, {
-          width: '100%',
-          height: '100%',
-          videoId: component.videoID,
-          playerVars: {
-            autoplay: 1,
-            autohide: 1,
-            modestbranding: 1,
-            playsinline: 1,
-            rel: 0,
-            showinfo: 0,
-            controls: 0,
-            disablekb: 1,
-            enablejsapi: 0,
-            iv_load_policy: 3,
-            fs: 0
-          },
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onStateChange
-          }
-        });
-      };
-
-      var iframe = component.shadowRoot.querySelector('#player');
-      iframe.style.display = 'inline';
-      iframe.style.marginLeft = 0;
-
-      window.addEventListener('resize', vidRescale);
+  function applyVideoSource(component) {
+    if (component.videoSource.includes('youtube')) {
+      var id = getParameterByName('v', component.videoSource);
+      setYoutubeSource(component, id);
+    } else if (component.videoSource.includes('.mp4')) {
+      setMp4Source(component);
     }
+  }
+
+  function setYoutubeSource(component, videoId) {
+    var videoBox = component.shadowRoot.querySelector('#player');
+
+    // Load the YouTube API asynchronously
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // Create the player object when API is ready
+    var player;
+    window.onYouTubeIframeAPIReady = function () {
+      player = new YT.Player(videoBox, {
+        width: '100%',
+        height: '100%',
+        videoId: videoId,
+        playerVars: {
+          autoplay: 1,
+          autohide: 1,
+          modestbranding: 1,
+          playsinline: 1,
+          rel: 0,
+          showinfo: 0,
+          controls: 0,
+          disablekb: 1,
+          enablejsapi: 0,
+          iv_load_policy: 3,
+          fs: 0
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onStateChange
+        }
+      });
+    };
+
+    function onPlayerReady(event) {
+      // Limits the amount of black screen before restarting the video
+      setInterval(function () {
+        var i = player.getCurrentTime() / player.getDuration() * 100;
+        // if the video is at least 99% complete, restart the video
+        if (i >= 99) player.seekTo(0);
+      }, 25);
+      player.mute();
+      vidRescale(player);
+      // This forces it to start playing on mobile devices
+      player.playVideo();
+    }
+
+    function onStateChange(event) {
+      switch (event.data) {
+        case YT.PlayerState.PLAYING:
+          // Fade out the starting image
+          component.shadowRoot.querySelector('#hidden-image').classList.add('hidden');
+          break;
+        case YT.PlayerState.ENDED:
+          // Use this instead of a looped playlist to prevent loading the video again 
+          // limiting a longer black screen in between
+          player.playVideo();
+          break;
+      }
+    }
+
+    var video = component.shadowRoot.querySelector('#player');
+    video.style.display = 'inline';
+    video.style.marginLeft = 0;
+
+    window.addEventListener('resize', vidRescale);
+
+    function vidRescale() {
+      var w = window.innerWidth + 300;
+      var h = window.innerHeight + 300;
+      if (w / h > 16 / 9) {
+        player.setSize(w, w / 16 * 9);
+      } else {
+        player.setSize(h / 9 * 16, h);
+      }
+      video.style.left = (window.innerWidth - video.offsetWidth) / 2 + 'px';
+    }
+  }
+
+  function setMp4Source(component) {
+    var divPlayer = component.shadowRoot.querySelector('#player');
+    var video = document.createElement('video');
+    video.id = 'player';
+    video.classList.add('screen', 'mute');
+    video.src = component.videoSource;
+    video.autoplay = true;
+    video.controls = false;
+    video.muted = true;
+    video.loop = true;
+    video.poster = component.imageSource;
+    component.shadowRoot.querySelectorAll('.tv')[0].replaceChild(video, divPlayer);
+
+    vidRescale();
+    window.addEventListener('resize', vidRescale);
+
+    // Fade the initial image when the video has enough frames to play
+    video.addEventListener("canplay", function () {
+      component.shadowRoot.querySelector('#hidden-image').classList.add('hidden');
+    });
+
+    function vidRescale() {
+      var w = video.parentElement.clientWidth;
+      var h = video.parentElement.clientHeight;
+      if (w / h > 16 / 9) {
+        video.style.width = '100%';
+        video.style.height = '';
+      } else {
+        video.style.width = '';
+        video.style.height = '100%';
+      }
+    }
+  }
+
+  function getParameterByName(name, url) {
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
   }
 
   function setupSlotListeners(component) {}
