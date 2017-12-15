@@ -72,7 +72,7 @@
     }
 }
 
-:host(.youtube-hero) {
+:host(.video-hero) {
 
     .image-wrapper {
         position: absolute;
@@ -87,7 +87,7 @@
         position: absolute;
         z-index: 250;
     }
-    // For fading out the image after youtube video starts playing
+    // For fading out the image after video video starts playing
     .hidden {
         opacity: 0;
         transition: opacity 2s ease-in-out;
