@@ -72,6 +72,35 @@
     }
 }
 
+:host(.title-only) {
+    max-height: 400px;
+    height: 400px;
+
+    .image-wrapper {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .text-wrapper {
+
+        .headline {
+            font-size: 200px !important;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            line-height: 135px;
+            transform: translateX(-50%);
+            text-transform: uppercase;
+        }
+
+        .headline ::slotted(*) {
+            font-family: $bodyFont !important;
+            color: $white;
+        }
+    }
+}
+
 :host(.video-hero) {
 
     .image-wrapper {
@@ -349,8 +378,51 @@
         justify-content: flex-end;
     }
 }    
+
+/* Desktop */
+@media (max-width: 1440px) {
+    :host(.title-only) {
+        max-height: 320px;
+
+        .text-wrapper {
+
+            .headline {
+                font-size: 160px !important;
+                line-height: 108px;
+            }
+        }
+    }
+}
+
+/* Small Desktop, Large Tablet */
+@media (max-width: 1224px) {
+    :host(.title-only) {
+        max-height: 280px;
+
+        .text-wrapper {
+
+            .headline {
+                font-size: 130px !important;
+                line-height: 88px;
+            }
+        }
+    }
+}
+
 /* Tablet Width */
 @media (max-width: 1024px) {
+
+    :host(.title-only) {
+        max-height: 220px;
+
+        .text-wrapper {
+
+            .headline {
+                font-size: 98px !important;
+                line-height: 66px;
+            }
+        }
+    }
 
     :host(.full-screen) {
         height: $mobileHeight;
@@ -367,7 +439,6 @@
                 .intro-text {
                     font-size: $introTextFontSizeFullScreenMobile;
                 }
-
             }
         }
     }
@@ -429,8 +500,35 @@
     }
 }
 
+/* Large Phone Width */
+@media (max-width: 768px) {
+    :host(.title-only) {
+        max-height: 190px;
+
+        .text-wrapper {
+
+            .headline {
+                font-size: 78px !important;
+                line-height: 52px;
+            }
+        }
+    }
+}
+
 /* Phone Width */
 @media (max-width: 616px) {
+
+    :host(.title-only) {
+        max-height: 120px;
+
+        .text-wrapper {
+
+            .headline {
+                font-size: 55px !important;
+                line-height: 36px;
+            }
+        }
+    }
 
     :host(.side-image) {
 
