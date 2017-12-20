@@ -110,12 +110,17 @@
         z-index: 200;
     }
 
+    .text-wrapper {
+        color: $white;
+    }
+
     // Show the image initially
     #hidden-image {
         display: inline;
         position: absolute;
         z-index: 250;
     }
+    
     // For fading out the image after video video starts playing
     .hidden {
         opacity: 0;
@@ -149,7 +154,6 @@
             top: 0;
             right: 0;
             bottom: 0;
-            // width: 100%;
             /* this always centers the video */
             left: 50%;
             transform: translateX(-50%);
@@ -175,7 +179,7 @@
     }
 }
 
-:host(.full-screen, .video-hero) {
+:host(.full-screen,.video-hero) {
     
     .text-wrapper {
         position: absolute;
@@ -189,17 +193,13 @@
         justify-content: center;
         text-align: center;
         box-sizing: border-box;
-        // padding: 0 20px;
         z-index: 300;
         
         .text-inner-wrapper {
-            // background-color: rgba(255,255,255,0.8);
             padding: 20px;
-            color: $white;
         }
 
         .headline {
-            //color: $navy;
             font-size: $headlineSizeFullScreen;
             line-height: $headlineLineHeightFullScreen;
         }
@@ -221,6 +221,43 @@
             ::slotted(a:hover), ::slotted(.btn:hover) {
                 background-color: #00152a !important;
                 border-color: #000306 !important;
+            }
+        }
+    }
+}
+
+:host(.full-screen.light-image) {
+    .text-wrapper {
+        
+        .text-inner-wrapper {
+            background-color: rgba(255,255,255,0.8);
+
+            .headline {
+                color: $navy;
+                font-size: $headlineSizeOverlay;
+                line-height: $headlineLineHeightOverlay;
+            }
+
+            .intro-text {
+                color: inherit;
+                margin-top: 15px;
+                font-size: $introTextFontSizeOverlay;
+                line-height: $introTextLineHeightOverlay;
+            }
+
+            .read-more-link {
+                margin-top: 20px;
+                align-self: center;
+
+                ::slotted(a), ::slotted(.btn) {
+                    background-color: $navy !important;
+                    color: #fff !important;
+                }
+
+                ::slotted(a:hover), ::slotted(.btn:hover) {
+                    background-color: #00152a !important;
+                    border-color: #000306 !important;
+                }
             }
         }
     }
@@ -328,6 +365,7 @@
         box-sizing: border-box;
         display: flex;
         justify-content: flex-start;
+
         .text-inner-wrapper {
             width: 400px;
             height: 80%;
@@ -500,7 +538,7 @@
     }
 }
 
-/* Large Phone Width */
+/* Large Phone, Small Tablet Width */
 @media (max-width: 768px) {
     :host(.title-only) {
         max-height: 190px;
