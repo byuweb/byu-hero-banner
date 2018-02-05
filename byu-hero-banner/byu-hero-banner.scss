@@ -23,7 +23,6 @@
     height: $desktopHeight;
     overflow: hidden;
     position: relative;
-    //display: block;
     display: flex;
     justify-content: center;
 }
@@ -320,7 +319,6 @@
             ::slotted(a), ::slotted(.btn) {
                 background-color: #fff !important;
                 color: $navy !important;
-                // border-color: $mediumGray !important;
             }
         }
     }
