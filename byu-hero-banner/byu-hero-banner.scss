@@ -562,15 +562,14 @@
             width: 100%;
             padding: 0;
             position: absolute;
-            top: 0;
+            top: inherit;
             bottom: 0;
             left: 0;
 
             .text-inner-wrapper {
                 width: 100%;
-                height: 100%;
                 padding: 30px 30px;
-                transform: translateY(0);
+                transform: none;
 
                 .headline {
                     font-size: $headlineSizeOverlayMobile;
