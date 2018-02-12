@@ -450,7 +450,13 @@
 }
 
 /* Allow Right Aligning the transparent overlay */
-:host(.transparent-overlay.hero-right-align) {
+:host(.transparent-overlay.right) {
+    .text-wrapper {
+        justify-content: flex-end;
+    }
+} 
+
+:host(.transparent-overlay.byu-hero-right) {
     .text-wrapper {
         justify-content: flex-end;
     }
