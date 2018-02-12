@@ -450,7 +450,7 @@
 }
 
 /* Allow Right Aligning the transparent overlay */
-:host(.transparent-overlay.right) {
+:host(.transparent-overlay.hero-right-align) {
     .text-wrapper {
         justify-content: flex-end;
     }
