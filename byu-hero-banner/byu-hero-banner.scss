@@ -454,6 +454,12 @@
     .text-wrapper {
         justify-content: flex-end;
     }
+} 
+
+:host(.transparent-overlay.byu-hero-right) {
+    .text-wrapper {
+        justify-content: flex-end;
+    }
 }    
 
 /* Desktop */
