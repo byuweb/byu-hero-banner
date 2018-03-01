@@ -446,6 +446,7 @@
         .read-more-link {
             margin-top: 20px;
             align-self: center;
+            width: 100%;
 
             ::slotted(a), ::slotted(.btn) {
                 background-color: $navy !important;
