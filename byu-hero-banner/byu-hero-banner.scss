@@ -48,10 +48,13 @@
 
 .read-more-link  {
 
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 
     ::slotted(a), ::slotted(.btn) {
-        margin-bottom: 0;
+        
         font-weight: bold !important;
         vertical-align: middle;
         touch-action: manipulation;
@@ -70,6 +73,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    ::slotted(a), ::slotted(.btn:not(:first-child)) {
+        margin-top: 10px;
+        margin-left: 10px;
     }
 }
 
@@ -287,6 +295,7 @@
             .read-more-link {
                 margin-top: 20px;
                 align-self: center;
+                
 
                 ::slotted(a), ::slotted(.btn) {
                     background-color: $navy !important;
@@ -369,8 +378,10 @@
         }
 
         .read-more-link {
+            margin: 0 -10px;
             margin-top: 20px;
-
+            justify-content: flex-start;
+            
             ::slotted(a), ::slotted(.btn) {
                 background-color: $navy !important;
                 color: #fff !important;
@@ -435,6 +446,7 @@
         .read-more-link {
             margin-top: 20px;
             align-self: center;
+            width: 100%;
 
             ::slotted(a), ::slotted(.btn) {
                 background-color: $navy !important;
