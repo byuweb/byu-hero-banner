@@ -73,11 +73,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-
-    ::slotted(a), ::slotted(.btn:not(:first-child)) {
-        margin-top: 10px;
-        margin-left: 10px;
+        box-sizing: border-box;
+        margin: 5px !important;
     }
 }
 
