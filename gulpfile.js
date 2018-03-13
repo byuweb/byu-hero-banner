@@ -21,7 +21,7 @@ const gulp = require('gulp');
 const rename = require('gulp-rename');
 const initWcBuild = require('byu-web-component-build').gulp;
 
-gulp.task('build', ['wc:build'], function () {
+gulp.task('build', ['wc:build', 'demo:build'], function () {
   browserSync.reload();
 });
 
@@ -36,6 +36,11 @@ initWcBuild(gulp, {
   }
 });
 
+gulp.task('demo:build', function() {
+  gulp.src('./demo/**')
+        .pipe(gulp.dest('./dist/demo/'));
+});
+
 gulp.task('watch', ['build'], function (done) {
   browserSync.init({
     server: {
@@ -45,7 +50,7 @@ gulp.task('watch', ['build'], function (done) {
     notify: false
   }, done);
 
-  gulp.watch(['demo.html', './byu-hero-banner/**'], ['build']);
+  gulp.watch(['./demo/**', './byu-hero-banner/**'], ['build']);
 });
 
 gulp.task('default', ['watch']);
