@@ -46,7 +46,7 @@ gulp.task('watch', ['build'], function (done) {
     server: {
       baseDir: './',
     },
-    startPath: '/demo.html',
+    startPath: '/dist/demo/',
     notify: false
   }, done);
 
