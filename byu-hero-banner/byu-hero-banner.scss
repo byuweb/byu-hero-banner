@@ -391,6 +391,61 @@
         }
     }
 }
+// Left Aligned Side Image Option
+:host(.side-image.left-aligned) {
+    max-width: 100%;
+    display: flex;
+}
+// Image Style 2 - Supports video dimensions 9 x 16
+:host(.side-image.image-style-2) {
+    align-items: flex-start;
+    padding: 0px;
+    @media screen and (max-width: 767px) {
+        flex-wrap: wrap;
+    }
+    .image-wrapper, .image-wrapper iframe {
+        height: 320px;
+        width: 570px;
+        @media screen and (max-width: 1024px) {
+            height: 270px;
+             width: 480px;
+        }
+        @media screen and (width: 768px) {
+            height: 180px;
+             width: 320px;
+        }
+        @media screen and (max-width: 767px) {
+            height: 180px;
+            width: 320px;
+            margin-bottom: 20px;
+            margin-right: auto;
+        }
+        .html5-video-player:not(.ytp-transparent), .html5-video-player.unstarted-mode, .html5-video-player.ad-interrupting, .html5-video-player.ended-mode, .html5-video-player.ytp-fullscreen {
+            background: #fff; // this is super weird, come back to this!
+        }
+    }
+    .text-wrapper {
+        margin: 0 50px;
+        @media screen and (max-width:1024px) {
+            margin: 0 30px;
+        }
+        @media screen and (max-width: 768px) {
+            margin: 0px;
+        }
+        .text-inner-wrapper .headline {
+            font-size: 40px;
+            @media screen and (max-width: 1024px) {
+                font-size: 25px;
+            }
+        }
+        .read-more-link {
+            margin: 0;
+        }
+    }
+    #hidden-image {
+        display: none!important;
+    }
+}
 
 :host(.transparent-overlay) {
    
@@ -454,6 +509,7 @@
                 background-color: #00152a !important;
                 border-color: #000306 !important;
             }
+
         }
     }
 }
@@ -633,7 +689,7 @@
         max-height: initial;
         padding: 0;
         display: block;
-
+        //flex-wrap: wrap;
         .image-wrapper {
             background: none !important;
             height: auto;
@@ -654,5 +710,23 @@
                 margin-top: 20px;
             }
         }        
+    }
+}
+
+:host(.side-image) .text-wrapper .read-more-link {
+    ::slotted(.no-button), ::slotted(.no-button:hover) {
+        background: none!important;
+        font-weight: normal!important;
+        font-size: 15px;
+        font-style: italic;
+        color: $royal!important;
+        border: none;
+        padding: 0;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin: 5px 0!important;
+    }
+    ::slotted(.no-button:hover) {
+        color: $navy;
     }
 }

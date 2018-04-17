@@ -25,6 +25,13 @@ The side image layout features a 616x414 image to the left of the text. In phone
 
 This layout is applied by adding the side-image css class to the component.
 
+## Side Image Style 2
+This layout uses video-friendly image dimensions (9:16 ratio), starting at 570px by 320px.
+ 
+## Side Image Left Alignment Layout
+If you want the Side Image layout but you don't want it centered, add the class 'left-aligned' to the byu-hero-banner element. Then your side-image layout will be left-aligned.
+This can be helpful if you have a constrained-page layout and want this image hero to lign up on the left side with content above or below it.
+
 # Transparent Overlay
 
 This hero option puts the text in a transparent overlay that sits on the left side of the image. Future releases will allow moving this overlay to the right or bottom-center of the image. In tablet and phone sizes the overlay moves to the bottom of the image.
@@ -38,6 +45,13 @@ The full screen layout has two options, depending on whether your image is mostl
 This layout is applied by adding the "full-screen dark-image" or "full-screen light-image" css class to the component. 
 
 Note that the dark-image option uses white text and does not have an overlay, so in order to make your banner readable and accessible you'll need to make sure the background image is dark enough to provide sufficient contrast with the text.
+
+# No Overlay Option
+If you are concerned about ensuring accessibility with overlays or prefer a text-to-the-side layout, this is a good option for you.
+Add the class 'no-overlay' to your byu-hero-banner component.
+
+# Read More Link Style
+If you prefer a standard royal-blue link to the button style, add the class 'no-button' to whatever you are passing into that slot.
 
 # Release Roadmap
 
