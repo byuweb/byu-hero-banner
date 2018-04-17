@@ -21,12 +21,16 @@ As of this writing there are 3 different layout options for the banner, with exa
 
 # Side Image
 
-The side image layout features a 616x414 image to the left of the text. In phone sizes the image moves to the top and the text is shown below it.
+The side image layout features a 616x414 image to the left of the text. The text and image are vertically centered. In phone sizes the image moves to the top and the text is shown below it.
 
 This layout is applied by adding the side-image css class to the component.
 
-## Side Image Style 2
-This layout uses video-friendly image dimensions (9:16 ratio), starting at 570px by 320px.
+## Side Image:  Style 2
+This layout uses video-friendly image dimensions (9:16 ratio), starting at 570px by 320px. Rather than having the image and text vertically centered, it is top-aligned for a clean edge.
+It has a smaller heading title as well, and adapts to mobile and tablet sizes responsively.
+ 
+### Video Support
+It is fully compatible with video support: simply provide the video-source attribute as well as the image-source attribute. Do not add the 'video-hero' class, as that is a different video style and conflicts.
  
 ## Side Image Left Alignment Layout
 If you want the Side Image layout but you don't want it centered, add the class 'left-aligned' to the byu-hero-banner element. Then your side-image layout will be left-aligned.
