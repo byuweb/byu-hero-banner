@@ -23,7 +23,7 @@ As of this writing there are 3 different layout options for the banner, with exa
 
 The side image layout features a 616x414 image to the left of the text. The text and image are vertically centered. In phone sizes the image moves to the top and the text is shown below it.
 
-This layout is applied by adding the side-image css class to the component.
+This layout is applied by adding the side-image css class to the component. There is no `max-width` because it is mean to be used within a containing div.
 
 ## Side Image:  Style 2
 This layout uses video-friendly image dimensions (9:16 ratio), starting at 570px by 320px. Rather than having the image and text vertically centered, it is top-aligned for a clean edge.
