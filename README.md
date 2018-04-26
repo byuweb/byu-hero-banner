@@ -21,9 +21,20 @@ As of this writing there are 3 different layout options for the banner, with exa
 
 # Side Image
 
-The side image layout features a 616x414 image to the left of the text. In phone sizes the image moves to the top and the text is shown below it.
+The side image layout features a 616x414 image to the left of the text. The text and image are vertically centered. In phone sizes the image moves to the top and the text is shown below it.
 
-This layout is applied by adding the side-image css class to the component.
+This layout is applied by adding the side-image css class to the component. There is no `max-width` because it is mean to be used within a containing div.
+
+## Side Image:  Style 2
+This layout uses video-friendly image dimensions (9:16 ratio), starting at 570px by 320px. Rather than having the image and text vertically centered, it is top-aligned for a clean edge.
+It has a smaller heading title as well, and adapts to mobile and tablet sizes responsively.
+ 
+### Video Support
+It is fully compatible with video support: simply provide the video-source attribute as well as the image-source attribute. Do not add the 'video-hero' class, as that is a different video style and conflicts.
+ 
+## Side Image Left Alignment Layout
+If you want the Side Image layout but you don't want it centered, add the class 'left-aligned' to the byu-hero-banner element. Then your side-image layout will be left-aligned.
+This can be helpful if you have a constrained-page layout and want this image hero to lign up on the left side with content above or below it.
 
 # Transparent Overlay
 
@@ -38,6 +49,13 @@ The full screen layout has two options, depending on whether your image is mostl
 This layout is applied by adding the "full-screen dark-image" or "full-screen light-image" css class to the component. 
 
 Note that the dark-image option uses white text and does not have an overlay, so in order to make your banner readable and accessible you'll need to make sure the background image is dark enough to provide sufficient contrast with the text.
+
+# No Overlay Option
+If you are concerned about ensuring accessibility with overlays or prefer a text-to-the-side layout, this is a good option for you.
+Add the class 'no-overlay' to your byu-hero-banner component.
+
+# Read More Link Style
+If you prefer a standard royal-blue link to the button style, add the class 'no-button' to whatever you are passing into that slot.
 
 # Release Roadmap
 
