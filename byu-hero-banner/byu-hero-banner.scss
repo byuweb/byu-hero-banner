@@ -42,7 +42,7 @@
     }
 
     .headline ::slotted(*) {
-        font-family: $headlineFont !important;
+        font-family: $headlineFont;
     }
 }
 
