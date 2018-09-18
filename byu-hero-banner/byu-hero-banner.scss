@@ -678,16 +678,15 @@
 /* Phone Width */
 @media (max-width: 616px) {
 
-    :host(.title-only) {
-        max-height: 120px;
+    .text-wrapper, :host(.video-hero) .text-wrapper {
 
-        .text-wrapper {
-
-            .headline {
-                font-size: 55px !important;
-                line-height: 36px;
-            }
+        .headline {
+            font-size: 55px;
         }
+    }
+
+    :host(.title-only) {
+        max-height: 120px;        
     }
 
     :host(.side-image) {
