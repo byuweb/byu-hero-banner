@@ -101,7 +101,7 @@
 
         .headline ::slotted(*) {
             font-family: $bodyFont !important;
-            color: $white;
+            color: var(--hero-text-color, $white);
         }
     }
 }
@@ -116,7 +116,7 @@
     }
 
     .text-wrapper {
-        color: $white;
+        color: var(--hero-text-color, $white);
         position: absolute;
         top: 0px;
         left: 0px;
@@ -149,13 +149,13 @@
             margin-top: 50px;
 
             ::slotted(a), ::slotted(.btn) {
-                background-color: $navy !important;
-                color: #fff !important;
+                background-color: var(--read-more-bg-color, $navy) !important;
+                color: var(--read-more-color, $white) !important;
             }
 
             ::slotted(a:hover), ::slotted(.btn:hover) {
-                background-color: #00152a !important;
-                border-color: #000306 !important;
+                background-color: var(--read-more-hover-color, #00152a) !important;
+                border-color: var(--read-more-hover-border-color, #000306) !important;
             }
         }
     }
@@ -257,13 +257,13 @@
             margin-top: 50px;
 
             ::slotted(a), ::slotted(.btn) {
-                background-color: $navy !important;
-                color: #fff !important;
+              background-color: var(--read-more-bg-color, $navy) !important;
+              color: var(--read-more-color, $white) !important;
             }
 
             ::slotted(a:hover), ::slotted(.btn:hover) {
-                background-color: #00152a !important;
-                border-color: #000306 !important;
+              background-color: var(--read-more-hover-color, #00152a) !important;
+              border-color: var(--read-more-hover-border-color, #000306) !important;
             }
         }
     }
@@ -273,10 +273,10 @@
     .text-wrapper {
 
         .text-inner-wrapper {
-            background-color: rgba(255,255,255,0.8);
+            background-color: var(--text-bg-color, rgba(255,255,255,0.8));
 
             .headline {
-                color: $navy;
+                color: var(--hero-text-color, $navy);
                 font-size: $headlineSizeOverlay;
                 line-height: $headlineLineHeightOverlay;
             }
@@ -293,15 +293,15 @@
                 align-self: center;
 
 
-                ::slotted(a), ::slotted(.btn) {
-                    background-color: $navy !important;
-                    color: #fff !important;
-                }
+              ::slotted(a), ::slotted(.btn) {
+                background-color: var(--read-more-bg-color, $navy) !important;
+                color: var(--read-more-color, $white) !important;
+              }
 
-                ::slotted(a:hover), ::slotted(.btn:hover) {
-                    background-color: #00152a !important;
-                    border-color: #000306 !important;
-                }
+              ::slotted(a:hover), ::slotted(.btn:hover) {
+                background-color: var(--read-more-hover-color, #00152a) !important;
+                border-color: var(--read-more-hover-border-color, #000306) !important;
+              }
             }
         }
     }
@@ -316,15 +316,15 @@
         }
 
         .headline, .intro-text, .read-more-link {
-            color: #fff;
+            color: var(--hero-text-color, #fff);
         }
 
         .read-more-link {
 
-            ::slotted(a), ::slotted(.btn) {
-                background-color: #fff !important;
-                color: $navy !important;
-            }
+          ::slotted(a), ::slotted(.btn) {
+            background-color: var(--read-more-bg-color, $navy) !important;
+            color: var(--read-more-color, $white) !important;
+          }
         }
     }
 }
@@ -362,7 +362,7 @@
         margin-left: 50px;
 
         .headline {
-            color: $navy;
+            color: var(--hero-text-color, $navy);
             font-size: $headlineSizeSideImage;
             line-height: $headlineLineHeightSideImage;
         }
@@ -378,15 +378,15 @@
             margin-top: 20px;
             justify-content: flex-start;
 
-            ::slotted(a), ::slotted(.btn) {
-                background-color: $navy !important;
-                color: #fff !important;
-            }
+          ::slotted(a), ::slotted(.btn) {
+            background-color: var(--read-more-bg-color, $navy) !important;
+            color: var(--read-more-color, $white) !important;
+          }
 
-            ::slotted(a:hover), ::slotted(.btn:hover) {
-                background-color: #00152a !important;
-                border-color: #000306 !important;
-            }
+          ::slotted(a:hover), ::slotted(.btn:hover) {
+            background-color: var(--read-more-hover-color, #00152a) !important;
+            border-color: var(--read-more-hover-border-color, #000306) !important;
+          }
         }
     }
 }
@@ -479,7 +479,7 @@
             width: 400px;
             height: 80%;
             transform: translateY(10%);
-            background-color: rgba(255,255,255,0.8);
+            background-color: var(--text-bg-color, rgba(255,255,255,0.8));
             padding: 0 30px;
             display: flex;
             flex-direction: column;
@@ -489,7 +489,7 @@
         }
 
         .headline {
-            color: $navy;
+            color: var(--hero-text-color, $navy);
             font-size: $headlineSizeOverlay;
             line-height: $headlineLineHeightOverlay;
         }
@@ -505,15 +505,15 @@
             align-self: center;
             width: 100%;
 
-            ::slotted(a), ::slotted(.btn) {
-                background-color: $navy !important;
-                color: #fff !important;
-            }
+          ::slotted(a), ::slotted(.btn) {
+            background-color: var(--read-more-bg-color, $navy) !important;
+            color: var(--read-more-color, $white) !important;
+          }
 
-            ::slotted(a:hover), ::slotted(.btn:hover) {
-                background-color: #00152a !important;
-                border-color: #000306 !important;
-            }
+          ::slotted(a:hover), ::slotted(.btn:hover) {
+            background-color: var(--read-more-hover-color, #00152a) !important;
+            border-color: var(--read-more-hover-border-color, #000306) !important;
+          }
 
         }
     }
@@ -685,7 +685,7 @@
     }
 
     :host(.title-only) {
-        max-height: 120px;        
+        max-height: 120px;
     }
 
     :host(.side-image) {
@@ -722,7 +722,7 @@
         font-weight: normal!important;
         font-size: 15px;
         font-style: italic;
-        color: $royal!important;
+        color: var(--read-more-color, $royal) !important;
         border: none;
         padding: 0;
         align-items: flex-start;
@@ -730,6 +730,6 @@
         margin: 5px 0!important;
     }
     ::slotted(.no-button:hover) {
-        color: $navy;
+        color: var(--read-more-hover-color, $navy);
     }
 }
