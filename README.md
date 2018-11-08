@@ -57,6 +57,18 @@ Add the class 'no-overlay' to your byu-hero-banner component.
 # Read More Link Style
 If you prefer a standard royal-blue link to the button style, add the class 'no-button' to whatever you are passing into that slot.
 
+# CSS Vairables
+
+To customize the colors of the hero, you can use the following CSS variables:
+
+- `--hero-text-color` (use with any hero with text)
+- `--read-more-bg-color` (use with any hero with a read more button)
+- `--read-more-color` use with any hero with a read more button)
+- `--read-more-hover-color` (use with any hero with a read more button)
+- `--read-more-hover-border-color` (use with any hero with a read more button)
+- `--text-bg-color` (use with any hero with a text background)
+
+
 # Release Roadmap
 
 Planned additions to this component are as follows:
