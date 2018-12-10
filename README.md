@@ -67,7 +67,7 @@ To customize the colors of the hero, you can use the following CSS variables:
 - `--read-more-hover-color` (use with any hero with a read more button)
 - `--read-more-hover-border-color` (use with any hero with a read more button)
 - `--text-bg-color` (use with any hero with a text background)
-
+- `--intro-text-color` (use with any hero with intro text)
 
 # Release Roadmap
 

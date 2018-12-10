@@ -282,7 +282,7 @@
             }
 
             .intro-text {
-                color: inherit;
+                color: var(--intro-text-color, $navy);
                 margin-top: 15px;
                 font-size: $introTextFontSizeOverlay;
                 line-height: $introTextLineHeightOverlay;
