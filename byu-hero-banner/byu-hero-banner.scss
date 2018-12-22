@@ -319,6 +319,10 @@
             color: var(--hero-text-color, #fff);
         }
 
+        .intro-text {
+            color: var(--intro-text-color, #fff);
+        }
+
         .read-more-link {
 
           ::slotted(a), ::slotted(.btn) {
@@ -442,6 +446,7 @@
         }
         .intro-text {
             margin-top: 10px;
+            color: var(--intro-text-color, $navy);
         }
         .read-more-link {
             margin: 0;
