@@ -11,13 +11,17 @@ To use the component on your site, use the following markup:
 
     <link href="https://cdn.byu.edu/byu-hero-banner/latest/byu-hero-banner.min.css" rel="stylesheet" />
     <script async src="https://cdn.byu.edu/byu-hero-banner/latest/byu-hero-banner.min.js"></script>
-    <byu-hero-banner id="hero" image-source="dark-image.jpg" class="side-image">
+    <byu-hero-banner id="hero" image-source="dark-image.jpg" class="side-image" alt-text="building at sunset">
         <span slot="headline">This is the Headline</span>
         <span slot="intro-text">This is the intro text. I'm going to add more words here so it's not so short, resulting in a longer piece of intro text.</span>
         <a slot="read-more" href="http://www.google.com">Custom "Read More" Text</a>
     </byu-hero-banner>
 
 As of this writing there are 3 different layout options for the banner, with example images for each one in the /specs folder of this repository. You can switch between the different layout options by adding a different css class to the byu-hero-banner component. 
+
+# Accessibility
+
+A note on accessibility - while this component allows you to set an alt-text attribute, many of the layouts rely on CSS backgrounds or embedded videos. In these cases the alt text is set on a hidden image tag that's not displayed. As a result, for accessibility purposed we strongly recommend not putting informational material in the image itself, but instead in the headline, intro text, etc. 
 
 # Side Image
 
