@@ -21,6 +21,7 @@ import * as util from 'byu-web-component-utils';
 
 const ATTR_IMG_SRC = 'image-source';
 const ATTR_VIDEO_SRC = 'video-source';
+const ATTR_ALT_TEXT = 'alt-text';
 
 class ByuHeroBanner extends HTMLElement {
   constructor() {
@@ -34,6 +35,7 @@ class ByuHeroBanner extends HTMLElement {
       setupSlotListeners(this);
       applyImageSource(this);
       applyVideoSource(this);
+      applyAltText(this);
     });
   }
 
@@ -48,6 +50,9 @@ class ByuHeroBanner extends HTMLElement {
         break;
       case ATTR_VIDEO_SRC:
         applyVideoSource(this);
+        break;
+      case ATTR_ALT_TEXT:
+        applyAltText(this);
         break;
     }
   }
@@ -73,6 +78,19 @@ class ByuHeroBanner extends HTMLElement {
     }
     return '';
   }
+
+  set altText(value) {
+    this.setAttribute(ATTR_ALT_TEXT, value);
+  }
+
+  get altText() {
+    if (this.hasAttribute(ATTR_ALT_TEXT)) {
+      return this.getAttribute(ATTR_ALT_TEXT);
+    }
+    return '';
+  }
+
+  
 }
 
 window.customElements.define('byu-hero-banner', ByuHeroBanner);
@@ -87,6 +105,11 @@ function applyImageSource(component) {
   // or an HTML image for different scenarios, depending on which one works best.
   let hiddenImage = component.shadowRoot.querySelector('#hidden-image');
   hiddenImage.src = component.imageSource;
+}
+
+function applyAltText(component) {
+  let hiddenImage = component.shadowRoot.querySelector('#hidden-image');
+  hiddenImage.alt = component.altText;
 }
 
 function applyVideoSource(component) {
